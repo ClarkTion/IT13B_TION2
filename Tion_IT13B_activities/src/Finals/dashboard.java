@@ -1029,10 +1029,19 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        // TODO add your handling code here:
+         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Confirm Logout",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+     if (response == JOptionPane.YES_OPTION) {
+        Final_Project log = new Final_Project();
+        log.setVisible(true);
+        dispose();
+     }
     }//GEN-LAST:event_jButton25ActionPerformed
 
-    
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
