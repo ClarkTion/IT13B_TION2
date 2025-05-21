@@ -13,6 +13,7 @@ public class Final_Project extends javax.swing.JFrame {
    
     public Final_Project() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -29,7 +30,7 @@ public class Final_Project extends javax.swing.JFrame {
         Passwordfield = new javax.swing.JPasswordField();
         Logintxt = new javax.swing.JLabel();
         Loginbtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,8 +64,8 @@ public class Final_Project extends javax.swing.JFrame {
         });
         jPanel1.add(Loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 271, 35));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\elizh\\Downloads\\books.jpg")); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 530, 330));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\elizh\\Downloads\\books.jpg")); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 560, 370));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,7 +152,7 @@ public class Final_Project extends javax.swing.JFrame {
     private javax.swing.JLabel Logintxt;
     private javax.swing.JPasswordField Passwordfield;
     private javax.swing.JTextField Userfield;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
