@@ -29,10 +29,12 @@ public class Final_Project extends javax.swing.JFrame {
         Passwordfield = new javax.swing.JPasswordField();
         Logintxt = new javax.swing.JLabel();
         Loginbtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(1, 11, 64));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Userfield.setBackground(new java.awt.Color(204, 204, 204));
         Userfield.addActionListener(new java.awt.event.ActionListener() {
@@ -40,13 +42,16 @@ public class Final_Project extends javax.swing.JFrame {
                 UserfieldActionPerformed(evt);
             }
         });
+        jPanel1.add(Userfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 271, 46));
 
         Passwordfield.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(Passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 271, 46));
 
         Logintxt.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         Logintxt.setForeground(new java.awt.Color(255, 255, 255));
         Logintxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Logintxt.setText("Log in");
+        Logintxt.setText("Welcome to BookLine! ");
+        jPanel1.add(Logintxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
         Loginbtn.setBackground(new java.awt.Color(2, 19, 115));
         Loginbtn.setForeground(new java.awt.Color(153, 255, 153));
@@ -56,37 +61,10 @@ public class Final_Project extends javax.swing.JFrame {
                 LoginbtnActionPerformed(evt);
             }
         });
+        jPanel1.add(Loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 271, 35));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Passwordfield, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(308, 308, 308)
-                            .addComponent(Logintxt))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(207, 207, 207)
-                            .addComponent(Userfield, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(220, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(Logintxt)
-                .addGap(28, 28, 28)
-                .addComponent(Userfield, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(Passwordfield, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(Loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\elizh\\Downloads\\books.jpg")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 530, 330));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,7 +101,7 @@ public class Final_Project extends javax.swing.JFrame {
         dash.setVisible(true);
         dispose();
         try {
-            FileWriter Writer = new FileWriter ("C:\\Users\\Admin\\Desktop\\FINAL_PROJECT.txt\\");
+            FileWriter Writer = new FileWriter ("C:\\Users\\elizh\\OneDrive\\Desktop\\FINAL PROJECT PROG.txt");
             Writer.write(user + "," + encryptedPass + "\n");
             Writer.close();
         }catch (IOException e){
@@ -173,6 +151,7 @@ public class Final_Project extends javax.swing.JFrame {
     private javax.swing.JLabel Logintxt;
     private javax.swing.JPasswordField Passwordfield;
     private javax.swing.JTextField Userfield;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
