@@ -1,16 +1,13 @@
 package Finals;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-
-
 public class Final_Project extends javax.swing.JFrame {
 
-
-    
-   
     public Final_Project() {
         initComponents();
         setLocationRelativeTo(null);
@@ -31,6 +28,10 @@ public class Final_Project extends javax.swing.JFrame {
         Logintxt = new javax.swing.JLabel();
         Loginbtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        Signupbtn = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,39 +44,63 @@ public class Final_Project extends javax.swing.JFrame {
                 UserfieldActionPerformed(evt);
             }
         });
-        jPanel1.add(Userfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 271, 46));
+        jPanel1.add(Userfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 270, 30));
 
         Passwordfield.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.add(Passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 271, 46));
+        jPanel1.add(Passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 270, 30));
 
-        Logintxt.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        Logintxt.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         Logintxt.setForeground(new java.awt.Color(255, 255, 255));
         Logintxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Logintxt.setText("Welcome to BookLine! ");
-        jPanel1.add(Logintxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+        jPanel1.add(Logintxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, -1, -1));
 
         Loginbtn.setBackground(new java.awt.Color(2, 19, 115));
-        Loginbtn.setForeground(new java.awt.Color(153, 255, 153));
+        Loginbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Loginbtn.setForeground(new java.awt.Color(255, 255, 255));
         Loginbtn.setText("Login");
         Loginbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoginbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(Loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 271, 35));
+        jPanel1.add(Loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 300, 80, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\elizh\\Downloads\\books.jpg")); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 560, 370));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 560, 370));
+
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Username");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Password");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
+
+        Signupbtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Signupbtn.setText("Sign Up");
+        Signupbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignupbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Signupbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -89,31 +114,62 @@ public class Final_Project extends javax.swing.JFrame {
         String user = Userfield.getText();
         String pass = Passwordfield.getText();
         int key = 3;
-        
-        String encryptedPass = " ";
-        for (int i = 0; i < pass.length(); i++){
+
+        String encryptedPass = "";
+        for (int i = 0; i < pass.length(); i++) {
             char ch = pass.charAt(i);
-            encryptedPass += (char)(ch+key);
+            encryptedPass += (char) (ch + key);
         }
-        
-        if (user.equalsIgnoreCase("admin")&& pass.equalsIgnoreCase("admin123")){
-          
-        dashboard dash =new dashboard();
-        dash.setVisible(true);
-        dispose();
+
+        String filePath = "C:\\Users\\elizh\\OneDrive\\Desktop\\FINAL PROJECT PROG.txt";
+
         try {
-            FileWriter Writer = new FileWriter ("C:\\Users\\elizh\\OneDrive\\Desktop\\FINAL PROJECT PROG.txt");
-            Writer.write(user + "," + encryptedPass + "\n");
-            Writer.close();
-        }catch (IOException e){
+            
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            boolean authenticated = false;
+
+            while ((line = reader.readLine()) != null) {
+                String[] credentials = line.split(",");
+                if (credentials.length == 2) {
+                    String storedUser = credentials[0];
+                    String storedPass = credentials[1];
+
+                    if (user.equalsIgnoreCase(storedUser) && encryptedPass.equals(storedPass)) {
+                        authenticated = true;
+                        break;
+                    }
+                }
+            }
+            reader.close();
+
+            if (authenticated) {
+                dashboard dash = new dashboard();
+                dash.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid username or password", "Login Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            
+            FileWriter writer = new FileWriter(filePath, true);
+            writer.write(user + "," + encryptedPass + "\n");
+            writer.close();
+
+        } catch (IOException e) {
             System.out.println("ERROR");
             e.printStackTrace();
         }
-        } else {
-            JOptionPane.showMessageDialog(null, "Invalid username or password", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_LoginbtnActionPerformed
 
+    private void SignupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignupbtnActionPerformed
+        // TODO add your handling code here:
+        
+
+        Signup sign = new Signup();
+        sign.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_SignupbtnActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -151,8 +207,12 @@ public class Final_Project extends javax.swing.JFrame {
     private javax.swing.JButton Loginbtn;
     private javax.swing.JLabel Logintxt;
     private javax.swing.JPasswordField Passwordfield;
+    private javax.swing.JToggleButton Signupbtn;
     private javax.swing.JTextField Userfield;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
